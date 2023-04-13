@@ -1,0 +1,17 @@
+
+.content{
+  height: 50vh;
+}
+.bg{
+  background-image: url('../../../assets/img/32313.jpg');
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+.hidden{
+  visibility: hidden;
+}
+.hidden:hover{
+  visibility: visible;
+}
