@@ -12,6 +12,5 @@ export class ApistateService {
   getstates(state_name: any): Observable<statesI[]> {
     let url = 'https://www.universal-tutorial.com/api/states/' + state_name;
     return this.http.get<statesI[]>(url);
-
   }
 }

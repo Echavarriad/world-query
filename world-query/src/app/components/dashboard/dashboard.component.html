@@ -5,7 +5,7 @@
         <legend>Form Word-query</legend>
         <div class="mb-3">
           <label for="disabledTextInput" class="form-label">Nombre</label>
-          <input type="text" class="form-control" placeholder="Nombre" required>
+          <input #asname type="text" class="form-control" placeholder="Nombre" required (keyup)="text($event)">
         </div>
         <div class="mb-3">
           <label for="disabledTextInput" class="form-label">Correo</label>
@@ -32,7 +32,7 @@
             <option *ngFor="let city of this.apicitys.citys" value={{city.city_name}}>{{city.city_name}}</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">guardar</button>
+        <button type="submit" class="btn btn-primary" >guardar</button>
       </fieldset>
     </form>
   </div>

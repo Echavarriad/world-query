@@ -13,6 +13,7 @@ import { ApicitysService } from 'src/app/service/apicitys.service';
 })
 export class DashboardComponent implements OnInit {
   //@ViewChild('ascountri') countri: ElementRef;
+  @ViewChild('asname') name: ElementRef | undefined;
 
   countriC = new FormGroup({
     country_name: new FormControl(''),
@@ -50,13 +51,23 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  text(event:any) {
+    const asname = this.name?.nativeElement;
+    let key = event.keyCode;
+    if (
+      (event.keyCode > 47 && event.keyCode < 58) ||
+      (event.keyCode > 95 && event.keyCode < 112)
+    ) {
+      asname.value = '';
+      alert('Solo se permiten letras');
+    } else {
+
+    }
+
+
+  }
   /* obtenerPaises() {
-    fetch('https://www.universal-tutorial.com/api/countries/', {
-      headers: {
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJkdXZhbkBnbWFpbC5jb20iLCJhcGlfdG9rZW4iOiJrZ195dmZwZmRCbGpPQlJWN1lVejRsRnRfcnlTZWQyamF4bzdmM201U2dFUTRIWU5ocDk3Q2JLdUc1NHVYc0wwSXVBIn0sImV4cCI6MTY4MTg3NjI1NX0.BCYzZL4R6g84nSKiQ8-fHlUGRxYp18gjt6NjUuvyVYg',
-        Accept: 'application/json',
-      },
+    fetch('https://restcountries.com/v3.1/all', {
     }).then(res => res.json())
       .then(json => console.log(JSON.stringify(json)));
   } */
