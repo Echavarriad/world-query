@@ -1,1 +1,40 @@
-<p>dashboard works!</p>
+<div class="container w-100 h d-flex justify-content-center align-items-center">
+  <div class="p-3 content border border-info w-70">
+    <form>
+      <fieldset>
+        <legend>Form Word-query</legend>
+        <div class="mb-3">
+          <label for="disabledTextInput" class="form-label">Nombre</label>
+          <input type="text" class="form-control" placeholder="Nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="disabledTextInput" class="form-label">Correo</label>
+          <input type="email" class="form-control" placeholder="Correo" required>
+        </div>
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">País</label>
+          <select #ascountri class="form-select"  id="countris" required (change)="obtenerestados($event.target)">
+            <option>Seleccionar</option>
+            <option *ngFor="let countri of this.api.countris"  value={{countri.country_name}}>{{countri.country_name}}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">Estados</label>
+          <select class="form-select" required (change)="obtenerciudad($event.target)">
+            <option>Seleccionar</option>
+            <option *ngFor="let state of this.apistate.states" value={{state.state_name}}>{{state.state_name}}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">Ciudad</label>
+          <select class="form-select" required>
+            <option>Seleccionar</option>
+            <option *ngFor="let city of this.apicitys.citys" value={{city.city_name}}>{{city.city_name}}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">guardar</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
